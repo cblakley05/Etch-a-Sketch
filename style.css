@@ -1,37 +1,82 @@
 body {
-    padding: 5%;
     font-family: sans-serif;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 h1 {
     text-align: center;
+    margin: 0.5em;
+}
+
+.controls {
+    margin: 0 0 20px 0;
+    margin-top: 0;
+    width: 80vw;
+    max-width: 800px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button {
+    border: none;
+    border-radius: 8px;
+    height: 36px;
+    padding: 0 0.8em;
+    background-color: #165ab3;
+    color: rgb(250, 250, 250);
+}
+
+.button:hover {
+    transform: scale(1.05) translate(0, -2px);
+    transition-duration: 200ms;
+}
+
+.colors {
+    margin: 0 20px;
+    display: flex;
+    flex-grow: 1;
+}
+
+.color {
+    border: none;
+    border-radius: 8px;
+    width: 36px;
+    height: 36px;
+    margin: 8px;
+}
+
+.color-black {
+    background-color: black;
+}
+
+.color-rgb {
+    background: red; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, orange , yellow, green, cyan, blue, violet); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, orange, yellow, green, cyan, blue, violet); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, orange, yellow, green, cyan, blue, violet); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, orange , yellow, green, cyan, blue, violet); /* Standard syntax (must be last) */
+}
+
+.color-inverted {
+    border: 3px inset black;
+    background-color: #FFF;
 }
 
 .container {
     width: 80vw;
     height: 80vw;
-    max-width: 600px;
-    max-height: 600px;
+    max-width: 800px;
+    max-height: 800px;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
-    border: 20px solid rgb(150, 30, 30);
+    border: 15px solid rgb(150, 30, 30);
     border-radius: 10px;
-}
-
-.hovered {
-    transition: background-color 200ms;
-    background-color: #222;
-}
-
-.controls {
-    margin-top: 20px;
-}
-
-.button {
-    border: none;
-    border-radius: 5px;
-    padding: 0.5em 0.8em;
-    background-color: #165ab3;
-    color: rgb(250, 250, 250);
 }
