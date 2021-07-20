@@ -1,3 +1,6 @@
+//
+//  Etch-a-Sketch Project for the Odin Project
+//
 
 const container = document.querySelector('.container');
 const gridSelect = document.querySelector('.grid-size');
@@ -50,7 +53,7 @@ clear.addEventListener('click', () => {
     renderGrid(gridSelect.value);
 })
 
-// generating squares
+// generating squares function
 function createSquare(sideLength) {
     let newSquare = document.createElement('div');
     let size = `${100 / sideLength}%`
@@ -60,6 +63,20 @@ function createSquare(sideLength) {
     newSquare.style.backgroundColor = gridColors.startColor;
     newSquare.classList.add('square');
     return newSquare
+}
+
+// adding color change listener function
+function addColorListeners(nodeList) {
+    for (let i = 0; i < nodeList.length; i++) {
+        nodeList[i].addEventListener('mouseover', function () {
+            if (gridColors.isRGB) {
+                nodeList[i].style.backgroundColor = gridColors.randColor();
+            } else {
+                nodeList[i].style.backgroundColor = gridColors.color;
+            }
+        });
+        // Maybe return to this when I understand Touch events.
+    }
 }
 
 // generating grid of squares
@@ -79,16 +96,8 @@ function renderGrid(sideLength) {
     // set squares to listen for hover and add .hovered
     const squares = document.querySelectorAll('.square');
 
-    for (let i = 0; i < squares.length; i++) {
-        squares[i].addEventListener('mouseover', function () {
-            if (gridColors.isRGB) {
-                squares[i].style.backgroundColor = gridColors.randColor();
-                console.log(squares[i].style.backgroundColor)
-            } else {
-                squares[i].style.backgroundColor = gridColors.color;
-            }
-        });
-    }
+    // apply color change listeners to squares
+    addColorListeners(squares);
 }
 
 renderGrid(10)

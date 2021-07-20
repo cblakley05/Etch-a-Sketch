@@ -80,3 +80,25 @@ h1 {
     border: 15px solid rgb(150, 30, 30);
     border-radius: 10px;
 }
+
+@media screen and (max-width: 554px) {
+    .controls {
+        width: 95vw;
+        transform: scale(0.8);
+    }
+
+    label[for="grid-size"] {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .controls {
+        width: 100vw;
+        transform: scale(0.7);
+    }
+
+    #color-label {
+        display: none;
+    }
+}
